@@ -7,6 +7,7 @@ package calculadora;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.net.URL;
+import java.util.Arrays;
 
 /**
  *
@@ -162,6 +163,11 @@ public class CalculadoraJavaSwing extends javax.swing.JFrame {
 
         botaomais.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         botaomais.setText("=");
+        botaomais.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaomaisActionPerformed(evt);
+            }
+        });
 
         botaomais1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         botaomais1.setText("+");
@@ -419,6 +425,13 @@ public class CalculadoraJavaSwing extends javax.swing.JFrame {
         String valor = visor.getText() + "+";
         visor.setText(valor);
     }//GEN-LAST:event_botaomais1ActionPerformed
+
+    private void botaomaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaomaisActionPerformed
+        Calculos x = new Calculos();
+        String valor = visor.getText();
+        x.getoperacao(valor);
+        System.out.println(x.getoperator());
+    }//GEN-LAST:event_botaomaisActionPerformed
 
     /**
      * @param args the command line arguments
