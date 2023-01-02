@@ -4,6 +4,7 @@
  */
 package calculadora;
 
+import java.util.List;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,15 +15,31 @@ import java.util.Arrays;
  */
 public class Calculos {
 
-    private String[] number1;
-    private String[] number2;
+    List<String> number1 = new ArrayList<>();
+    List<String> number2 = new ArrayList<>();
     private String[] operacaoquebrada;
     private String operator;
 
     public String[] getoperacao(String operation) {
-        this.operacaoquebrada = operation.split("");
-
+        this.operacaoquebrada = operation.split("(?<=[\\d.])(?=[^\\d.])|(?<=[^\\d.])(?=[\\d.])");
+        System.out.println(Arrays.toString(operacaoquebrada));
         return this.operacaoquebrada;
+
+    }
+
+    public int getnumbers() {
+        for (int i = 0; i < operacaoquebrada.length; i++) {
+            number1.add(operacaoquebrada[i]);
+           
+            
+            
+        
+        
+            
+        
+        }
+        return 0;
+
     }
 
     public String getoperator() {
@@ -36,8 +53,8 @@ public class Calculos {
             return ("Error");
         }
         return this.operator;
+
     }
-        
 
     private boolean isOperator() {
         return ("X".equals(this.operator) || "+".equals(this.operator) || "-".equals(this.operator) || "/".equals(this.operator));
