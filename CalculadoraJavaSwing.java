@@ -14,7 +14,11 @@ import java.util.Arrays;
  * @author Pichau
  */
 public class CalculadoraJavaSwing extends javax.swing.JFrame {
-
+    private boolean adicao = false;
+    private boolean subtração = false;
+    private boolean multiplicacao = false;
+    private boolean divisao = false;
+    Calculos x = new Calculos();
     /**
      * Creates new form NewJFrame
      */
@@ -23,6 +27,7 @@ public class CalculadoraJavaSwing extends javax.swing.JFrame {
         URL caminhoIcon = getClass().getResource("/calculadora/icon/iconZ.png");
         Image icon = Toolkit.getDefaultToolkit().getImage(caminhoIcon);
         this.setIconImage(icon);
+        
     }
 
     /**
@@ -48,14 +53,15 @@ public class CalculadoraJavaSwing extends javax.swing.JFrame {
         botaodois = new javax.swing.JToggleButton();
         botaomenos = new javax.swing.JToggleButton();
         botaotres1 = new javax.swing.JToggleButton();
-        botaomais = new javax.swing.JToggleButton();
         botaomais1 = new javax.swing.JToggleButton();
         botaoponto = new javax.swing.JToggleButton();
         botaozero = new javax.swing.JToggleButton();
         botaoapaga = new javax.swing.JToggleButton();
         botaodesliga = new javax.swing.JToggleButton();
         botaoclear = new javax.swing.JToggleButton();
+        botaoigual = new javax.swing.JToggleButton();
         visor = new javax.swing.JTextField();
+        visordois = new javax.swing.JTextField();
 
         jToggleButton1.setText("jToggleButton1");
 
@@ -65,6 +71,10 @@ public class CalculadoraJavaSwing extends javax.swing.JFrame {
 
         botaooito.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         botaooito.setText("8");
+        botaooito.setFocusPainted(false);
+        botaooito.setFocusable(false);
+        botaooito.setRequestFocusEnabled(false);
+        botaooito.setRolloverEnabled(false);
         botaooito.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaooitoActionPerformed(evt);
@@ -73,6 +83,10 @@ public class CalculadoraJavaSwing extends javax.swing.JFrame {
 
         botaosete.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         botaosete.setText("7");
+        botaosete.setFocusPainted(false);
+        botaosete.setFocusable(false);
+        botaosete.setRequestFocusEnabled(false);
+        botaosete.setRolloverEnabled(false);
         botaosete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoseteActionPerformed(evt);
@@ -81,6 +95,10 @@ public class CalculadoraJavaSwing extends javax.swing.JFrame {
 
         botaonove.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         botaonove.setText("9");
+        botaonove.setFocusPainted(false);
+        botaonove.setFocusable(false);
+        botaonove.setRequestFocusEnabled(false);
+        botaonove.setRolloverEnabled(false);
         botaonove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaonoveActionPerformed(evt);
@@ -90,6 +108,10 @@ public class CalculadoraJavaSwing extends javax.swing.JFrame {
         botaodivisao.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         botaodivisao.setText("/");
         botaodivisao.setToolTipText("");
+        botaodivisao.setFocusPainted(false);
+        botaodivisao.setFocusable(false);
+        botaodivisao.setRequestFocusEnabled(false);
+        botaodivisao.setRolloverEnabled(false);
         botaodivisao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaodivisaoActionPerformed(evt);
@@ -99,6 +121,10 @@ public class CalculadoraJavaSwing extends javax.swing.JFrame {
         botaocinco.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         botaocinco.setText("5");
         botaocinco.setToolTipText("");
+        botaocinco.setFocusPainted(false);
+        botaocinco.setFocusable(false);
+        botaocinco.setRequestFocusEnabled(false);
+        botaocinco.setRolloverEnabled(false);
         botaocinco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaocincoActionPerformed(evt);
@@ -107,6 +133,10 @@ public class CalculadoraJavaSwing extends javax.swing.JFrame {
 
         botaoseis.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         botaoseis.setText("6");
+        botaoseis.setFocusPainted(false);
+        botaoseis.setFocusable(false);
+        botaoseis.setRequestFocusEnabled(false);
+        botaoseis.setRolloverEnabled(false);
         botaoseis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoseisActionPerformed(evt);
@@ -115,6 +145,10 @@ public class CalculadoraJavaSwing extends javax.swing.JFrame {
 
         botaoquatro.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         botaoquatro.setText("4");
+        botaoquatro.setFocusPainted(false);
+        botaoquatro.setFocusable(false);
+        botaoquatro.setRequestFocusEnabled(false);
+        botaoquatro.setRolloverEnabled(false);
         botaoquatro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoquatroActionPerformed(evt);
@@ -123,6 +157,10 @@ public class CalculadoraJavaSwing extends javax.swing.JFrame {
 
         botaomultiplicacao.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         botaomultiplicacao.setText("x");
+        botaomultiplicacao.setFocusPainted(false);
+        botaomultiplicacao.setFocusable(false);
+        botaomultiplicacao.setRequestFocusEnabled(false);
+        botaomultiplicacao.setRolloverEnabled(false);
         botaomultiplicacao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaomultiplicacaoActionPerformed(evt);
@@ -131,6 +169,10 @@ public class CalculadoraJavaSwing extends javax.swing.JFrame {
 
         botaoum.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         botaoum.setText("1");
+        botaoum.setFocusPainted(false);
+        botaoum.setFocusable(false);
+        botaoum.setRequestFocusEnabled(false);
+        botaoum.setRolloverEnabled(false);
         botaoum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoumActionPerformed(evt);
@@ -139,6 +181,10 @@ public class CalculadoraJavaSwing extends javax.swing.JFrame {
 
         botaodois.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         botaodois.setText("2");
+        botaodois.setFocusPainted(false);
+        botaodois.setFocusable(false);
+        botaodois.setRequestFocusEnabled(false);
+        botaodois.setRolloverEnabled(false);
         botaodois.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaodoisActionPerformed(evt);
@@ -147,6 +193,10 @@ public class CalculadoraJavaSwing extends javax.swing.JFrame {
 
         botaomenos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         botaomenos.setText("-");
+        botaomenos.setFocusPainted(false);
+        botaomenos.setFocusable(false);
+        botaomenos.setRequestFocusEnabled(false);
+        botaomenos.setRolloverEnabled(false);
         botaomenos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaomenosActionPerformed(evt);
@@ -155,22 +205,22 @@ public class CalculadoraJavaSwing extends javax.swing.JFrame {
 
         botaotres1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         botaotres1.setText("3");
+        botaotres1.setFocusPainted(false);
+        botaotres1.setFocusable(false);
+        botaotres1.setRequestFocusEnabled(false);
+        botaotres1.setRolloverEnabled(false);
         botaotres1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaotres1ActionPerformed(evt);
             }
         });
 
-        botaomais.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        botaomais.setText("=");
-        botaomais.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaomaisActionPerformed(evt);
-            }
-        });
-
         botaomais1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         botaomais1.setText("+");
+        botaomais1.setFocusPainted(false);
+        botaomais1.setFocusable(false);
+        botaomais1.setRequestFocusEnabled(false);
+        botaomais1.setRolloverEnabled(false);
         botaomais1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaomais1ActionPerformed(evt);
@@ -179,6 +229,10 @@ public class CalculadoraJavaSwing extends javax.swing.JFrame {
 
         botaoponto.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         botaoponto.setText(".");
+        botaoponto.setFocusPainted(false);
+        botaoponto.setFocusable(false);
+        botaoponto.setRequestFocusEnabled(false);
+        botaoponto.setRolloverEnabled(false);
         botaoponto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaopontoActionPerformed(evt);
@@ -187,6 +241,10 @@ public class CalculadoraJavaSwing extends javax.swing.JFrame {
 
         botaozero.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         botaozero.setText("0");
+        botaozero.setFocusPainted(false);
+        botaozero.setFocusable(false);
+        botaozero.setRequestFocusEnabled(false);
+        botaozero.setRolloverEnabled(false);
         botaozero.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaozeroActionPerformed(evt);
@@ -196,6 +254,10 @@ public class CalculadoraJavaSwing extends javax.swing.JFrame {
         botaoapaga.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         botaoapaga.setText("<");
         botaoapaga.setToolTipText("");
+        botaoapaga.setFocusPainted(false);
+        botaoapaga.setFocusable(false);
+        botaoapaga.setRequestFocusEnabled(false);
+        botaoapaga.setRolloverEnabled(false);
         botaoapaga.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoapagaActionPerformed(evt);
@@ -204,6 +266,10 @@ public class CalculadoraJavaSwing extends javax.swing.JFrame {
 
         botaodesliga.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         botaodesliga.setText("OFF");
+        botaodesliga.setFocusPainted(false);
+        botaodesliga.setFocusable(false);
+        botaodesliga.setRequestFocusEnabled(false);
+        botaodesliga.setRolloverEnabled(false);
         botaodesliga.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaodesligaActionPerformed(evt);
@@ -212,9 +278,25 @@ public class CalculadoraJavaSwing extends javax.swing.JFrame {
 
         botaoclear.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         botaoclear.setText("CE");
+        botaoclear.setFocusPainted(false);
+        botaoclear.setFocusable(false);
+        botaoclear.setRequestFocusEnabled(false);
+        botaoclear.setRolloverEnabled(false);
         botaoclear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoclearActionPerformed(evt);
+            }
+        });
+
+        botaoigual.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        botaoigual.setText("=");
+        botaoigual.setFocusPainted(false);
+        botaoigual.setFocusable(false);
+        botaoigual.setRequestFocusEnabled(false);
+        botaoigual.setRolloverEnabled(false);
+        botaoigual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoigualActionPerformed(evt);
             }
         });
 
@@ -229,9 +311,9 @@ public class CalculadoraJavaSwing extends javax.swing.JFrame {
                         .addComponent(botaoapaga, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(botaoclear, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(botaomais, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(12, 12, 12)
+                        .addComponent(botaodesliga, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(botaodivisao, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -267,23 +349,27 @@ public class CalculadoraJavaSwing extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(botaomenos, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(botaomultiplicacao, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(botaodesliga, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(botaoigual, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botaoclear, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaoapaga, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaodivisao, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaomais, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botaooito, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaonove, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaosete, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(botaomultiplicacao, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(botaoclear, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(botaoapaga, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(botaodivisao, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(botaodesliga, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(botaooito, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(botaosete, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(botaomultiplicacao, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(botaonove, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaocinco, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -291,7 +377,7 @@ public class CalculadoraJavaSwing extends javax.swing.JFrame {
                     .addComponent(botaoquatro, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botaomenos, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(botaoum, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -302,12 +388,22 @@ public class CalculadoraJavaSwing extends javax.swing.JFrame {
                             .addComponent(botaoponto, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(botaomais1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(botaozero, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(botaodesliga, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(botaoigual, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
         visor.setEditable(false);
-        visor.setFont(new java.awt.Font("Segoe UI Emoji", 0, 24)); // NOI18N
+        visor.setFont(new java.awt.Font("Segoe UI Emoji", 0, 36)); // NOI18N
+        visor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                visorActionPerformed(evt);
+            }
+        });
+
+        visordois.setBackground(new java.awt.Color(204, 204, 204));
+        visordois.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        visordois.setForeground(new java.awt.Color(153, 153, 153));
+        visordois.setEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -315,19 +411,22 @@ public class CalculadoraJavaSwing extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(visor, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(visor, javax.swing.GroupLayout.DEFAULT_SIZE, 370, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(visordois))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addComponent(visor, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addComponent(visor, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(visordois, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
+                .addGap(22, 22, 22))
         );
 
         pack();
@@ -346,6 +445,7 @@ public class CalculadoraJavaSwing extends javax.swing.JFrame {
     private void botaozeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaozeroActionPerformed
         String valor = visor.getText() + "0";
         visor.setText(valor);
+        
     }//GEN-LAST:event_botaozeroActionPerformed
 
     private void botaoapagaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoapagaActionPerformed
@@ -364,11 +464,15 @@ public class CalculadoraJavaSwing extends javax.swing.JFrame {
 
     private void botaoclearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoclearActionPerformed
         visor.setText(null);
+        visordois.setText(null);
     }//GEN-LAST:event_botaoclearActionPerformed
 
     private void botaodivisaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaodivisaoActionPerformed
         String valor = visor.getText() + "/";
         visor.setText(valor);
+        x.setOperador('/');
+        visordois.setText(valor);
+        visor.setText(null);
     }//GEN-LAST:event_botaodivisaoActionPerformed
 
     private void botaoseteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoseteActionPerformed
@@ -389,6 +493,9 @@ public class CalculadoraJavaSwing extends javax.swing.JFrame {
     private void botaomultiplicacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaomultiplicacaoActionPerformed
         String valor = visor.getText() + "X";
         visor.setText(valor);
+        x.setOperador('/');
+        visordois.setText(valor);
+        visor.setText(null);
     }//GEN-LAST:event_botaomultiplicacaoActionPerformed
 
     private void botaoquatroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoquatroActionPerformed
@@ -399,6 +506,7 @@ public class CalculadoraJavaSwing extends javax.swing.JFrame {
     private void botaocincoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaocincoActionPerformed
         String valor = visor.getText() + "5";
         visor.setText(valor);
+        
     }//GEN-LAST:event_botaocincoActionPerformed
 
     private void botaoseisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoseisActionPerformed
@@ -409,6 +517,9 @@ public class CalculadoraJavaSwing extends javax.swing.JFrame {
     private void botaomenosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaomenosActionPerformed
         String valor = visor.getText() + "-";
         visor.setText(valor);
+        x.setOperador('-');
+        visordois.setText(valor);
+        visor.setText(null);
     }//GEN-LAST:event_botaomenosActionPerformed
 
     private void botaoumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoumActionPerformed
@@ -424,14 +535,24 @@ public class CalculadoraJavaSwing extends javax.swing.JFrame {
     private void botaomais1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaomais1ActionPerformed
         String valor = visor.getText() + "+";
         visor.setText(valor);
+        x.setOperador('+');
+        visordois.setText(valor);
+        visor.setText(null);
     }//GEN-LAST:event_botaomais1ActionPerformed
 
-    private void botaomaisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaomaisActionPerformed
-        Calculos x = new Calculos();
-        String valor = visor.getText();
-        x.getoperacao(valor);
-        System.out.println(x.getoperator());
-    }//GEN-LAST:event_botaomaisActionPerformed
+    private void botaoigualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoigualActionPerformed
+        String segundovisor = visordois.getText();
+        String nrm1 = visordois.getText().substring(0, visordois.getText().length()-1);
+        String nrm2 = visor.getText();
+        x.setNumber1(nrm1);
+        x.setNumber2(nrm2);
+        visor.setText(x.calcular());
+        visordois.setText(segundovisor +""+ nrm2);
+    }//GEN-LAST:event_botaoigualActionPerformed
+
+    private void visorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_visorActionPerformed
 
     /**
      * @param args the command line arguments
@@ -476,7 +597,7 @@ public class CalculadoraJavaSwing extends javax.swing.JFrame {
     private javax.swing.JToggleButton botaodesliga;
     private javax.swing.JToggleButton botaodivisao;
     private javax.swing.JToggleButton botaodois;
-    private javax.swing.JToggleButton botaomais;
+    private javax.swing.JToggleButton botaoigual;
     private javax.swing.JToggleButton botaomais1;
     private javax.swing.JToggleButton botaomenos;
     private javax.swing.JToggleButton botaomultiplicacao;
@@ -492,5 +613,6 @@ public class CalculadoraJavaSwing extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JTextField visor;
+    private javax.swing.JTextField visordois;
     // End of variables declaration//GEN-END:variables
 }
