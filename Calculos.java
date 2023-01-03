@@ -71,7 +71,7 @@ public class Calculos {
             if(nmr1 == null){
                 nmr1 = "0";
             }
-            if(nmr2 == null){
+            if(nmr2 == ""){
                 nmr2 = "0";
             }
             double nmr1convertido = Double.parseDouble(nmr1);

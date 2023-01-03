@@ -8,6 +8,7 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.net.URL;
 import java.util.Arrays;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -459,7 +460,14 @@ public class CalculadoraJavaSwing extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoapagaActionPerformed
 
     private void botaodesligaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaodesligaActionPerformed
-        System.exit(0);
+        int dialogButton = JOptionPane.YES_NO_OPTION;
+        int dialogResult = JOptionPane.showConfirmDialog(this, "Deseja sair da Aplicação?", "Sair", dialogButton);
+        if(dialogResult == 0){
+            System.exit(0);
+        }else{
+            JOptionPane.getRootFrame().dispose();
+        }
+        
     }//GEN-LAST:event_botaodesligaActionPerformed
 
     private void botaoclearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoclearActionPerformed
@@ -472,7 +480,7 @@ public class CalculadoraJavaSwing extends javax.swing.JFrame {
         visor.setText(valor);
         x.setOperador('/');
         visordois.setText(valor);
-        visor.setText(null);
+        visor.setText("");
     }//GEN-LAST:event_botaodivisaoActionPerformed
 
     private void botaoseteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoseteActionPerformed
@@ -495,7 +503,7 @@ public class CalculadoraJavaSwing extends javax.swing.JFrame {
         visor.setText(valor);
         x.setOperador('/');
         visordois.setText(valor);
-        visor.setText(null);
+        visor.setText("");
     }//GEN-LAST:event_botaomultiplicacaoActionPerformed
 
     private void botaoquatroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoquatroActionPerformed
@@ -519,7 +527,7 @@ public class CalculadoraJavaSwing extends javax.swing.JFrame {
         visor.setText(valor);
         x.setOperador('-');
         visordois.setText(valor);
-        visor.setText(null);
+        visor.setText("");
     }//GEN-LAST:event_botaomenosActionPerformed
 
     private void botaoumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoumActionPerformed
@@ -537,7 +545,7 @@ public class CalculadoraJavaSwing extends javax.swing.JFrame {
         visor.setText(valor);
         x.setOperador('+');
         visordois.setText(valor);
-        visor.setText(null);
+        visor.setText("");
     }//GEN-LAST:event_botaomais1ActionPerformed
 
     private void botaoigualActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoigualActionPerformed
